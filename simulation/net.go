@@ -56,6 +56,8 @@ func (n simNet) RequestPeering(p *peer.Peer, s *salt.Salt) (bool, error) {
 		if vEnabled {
 			visualizer.AddLink(n.self.ID().String(), p.ID().String())
 		}
+		// update converge message
+		updateConvergenceMsg(from, to)
 	} else {
 		status.Append(from, to, REJECTED)
 	}
